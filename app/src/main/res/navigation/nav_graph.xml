@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeScreenFragment">
+
+
+
+
+
+    <fragment
+        android:id="@+id/insertProductFragment"
+        android:name="com.example.listadecompras.fragments.InsertProductFragment"
+        android:label="@string/add_item"/>
+
+
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.example.listadecompras.fragments.HomeScreenFragment"
+        android:label="HomeScreenFragment" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_insertProductFragment"
+            app:destination="@id/insertProductFragment" />
+    </fragment>
+
+</navigation>
