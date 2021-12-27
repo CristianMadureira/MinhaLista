@@ -5,23 +5,20 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeScreenFragment">
 
-
-
-
-
-    <fragment
-        android:id="@+id/insertProductFragment"
-        android:name="com.example.listadecompras.fragments.InsertProductFragment"
-        android:label="@string/add_item"/>
-
-
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="com.example.listadecompras.fragments.HomeScreenFragment"
-        android:label="HomeScreenFragment" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_home_screen">
         <action
             android:id="@+id/action_homeScreenFragment_to_insertProductFragment"
             app:destination="@id/insertProductFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/insertProductFragment"
+        android:name="com.example.listadecompras.fragments.InsertProductFragment"
+        tools:layout="@layout/fragment_add_product"
+        android:label="@string/add_item"/>
 
 </navigation>

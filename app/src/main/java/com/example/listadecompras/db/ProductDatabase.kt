@@ -1,9 +1,10 @@
-package com.example.listadecompras.model
+package com.example.listadecompras.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.listadecompras.model.ProductEntity
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @Database(entities = [ProductEntity::class], version = 1)
@@ -17,7 +18,7 @@ abstract class ProductDatabase: RoomDatabase() {
         private var INSTANCE: ProductDatabase? = null
 
         @InternalCoroutinesApi
-        fun getDatabase(context: Context): ProductDatabase{
+        fun getDatabase(context: Context): ProductDatabase {
             return INSTANCE ?: synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,

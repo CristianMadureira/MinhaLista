@@ -1,6 +1,7 @@
-package com.example.listadecompras.model
+package com.example.listadecompras.db
 
 import androidx.room.*
+import com.example.listadecompras.model.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -19,6 +20,6 @@ interface ProductDao {
     fun getProduct(id: Long): Flow<ProductEntity>
 
     @Query("SELECT * from products ORDER BY name ASC")
-    fun getProducts(): Flow<List<ProductEntity>>
+    fun getAllProducts(): Flow<List<ProductEntity>>
 
 }
