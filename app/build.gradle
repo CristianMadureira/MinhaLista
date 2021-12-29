@@ -80,4 +80,8 @@ dependencies {
     implementation("org.koin:koin-android-viewmodel:$koin_version")
 
 
+    def activity_version = "1.4.0"
+    implementation("androidx.activity:activity-ktx:$activity_version")
+
+
 }

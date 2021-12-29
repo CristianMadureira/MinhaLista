@@ -48,7 +48,6 @@ class HomeScreenFragment: Fragment() {
         return root
     }
 
-
     fun insertProductListner(){
         binding.fabAdd.setOnClickListener {
             findNavController().navigate(R.id.action_homeScreenFragment_to_insertProductFragment)
