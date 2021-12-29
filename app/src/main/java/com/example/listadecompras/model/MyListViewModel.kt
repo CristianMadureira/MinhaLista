@@ -10,7 +10,7 @@ import java.lang.IllegalArgumentException
 
 class MyListViewModel(private val repository: ProductRepository): ViewModel() {
 
-    private val flow = repository.getAllProducts()
+    val flow = repository.getAllProducts()
 
     fun insert(product: ProductEntity){
         viewModelScope.launch {
@@ -27,6 +27,17 @@ class MyListViewModel(private val repository: ProductRepository): ViewModel() {
     fun getAllProducts(): Flow<List<ProductEntity>>{
         return repository.getAllProducts()
     }
+
+    fun addNewProduct(productName: String, productValue: String, productQuantity: String){
+        val newProduct = getNewInput(productName, productValue, productQuantity)
+        insert(newProduct)
+    }
+
+    private fun getNewInput(productName: String, productValue: String, productQuantity: String): ProductEntity{
+        return ProductEntity(name = productName, price = productValue.toDouble(), quantity = productQuantity.toInt() )
+    }
+
+
 }
 
 class MyListViewModelFactory(private val repository: ProductRepository): ViewModelProvider.Factory{

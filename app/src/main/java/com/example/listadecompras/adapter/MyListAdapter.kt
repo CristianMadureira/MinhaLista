@@ -4,30 +4,42 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.listadecompras.R
 import com.example.listadecompras.model.ProductEntity
 
 class MyListAdapter: RecyclerView.Adapter<MyListAdapter.MyViewHolder>() {
 
+    var data = listOf<ProductEntity>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.fragment_add_product, parent, false)
+        val view = layoutInflater.inflate(R.layout.adapter_list, parent, false)
         return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = data[position]
+        val res = holder.itemView.context.resources
+
+        holder.productName.text = "${item.name}"
+        holder.productQuantity.text = "${item.quantity.toString()}"
+        holder.producValue.text = "R$${item.price.toString()}"
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+       return data.size
     }
 
-    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        val productName: EditText = view.findViewById(R.id.editName)
-        val producPrice: EditText = view.findViewById(R.id.editPrice)
-        val productQuantity: EditText = view.findViewById(R.id.editQuantity)
+        val productName: TextView = itemView.findViewById(R.id.textName)
+        val producValue: TextView = itemView.findViewById(R.id.textValue)
+        val productQuantity: TextView = itemView.findViewById(R.id.textQuantity)
     }
 }
