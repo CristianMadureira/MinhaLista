@@ -9,4 +9,10 @@
         android:title="@string/add_item"
         />
 
+    <item
+        android:id="@+id/cancel_add"
+        android:icon="@drawable/ic_close_24"
+        app:showAsAction="ifRoom"
+        android:title="@string/add_item"/>
+
 </menu>
